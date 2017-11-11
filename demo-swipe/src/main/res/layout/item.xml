@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scott.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    app:swipeOrientation="horizontal"
+    app:swipeStatusPosition="0.5">
+
+    <FrameLayout
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:background="#aaa"
+        app:layout_itemType="start_item">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="rightmenu" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/end_item"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:background="#faf"
+        app:layout_itemType="end_item">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MainItem" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/swipe_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#afa"
+        app:layout_itemType="swipe_item">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MainItem" />
+    </FrameLayout>
+
+</com.scott.swipe.SwipeLayout>

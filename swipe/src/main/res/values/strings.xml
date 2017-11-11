@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Swipe</string>
+    <string name="swipeSnapHandler">com.scott.swipe.SwipeSnapHandler</string>
+</resources>
