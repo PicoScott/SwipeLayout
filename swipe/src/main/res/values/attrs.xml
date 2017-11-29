@@ -2,22 +2,19 @@
 <resources>
     <declare-styleable name="SwipeLayout">
         <attr name="swipeOrientation">
-            <enum name="horizontal" value="0" />
-            <enum name="vertical" value="1" />
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
         </attr>
-        <attr name="swipeEnable" format="boolean" />
-        <attr name="swipeFlag">
-            <enum name="swipe_snap" value="0" />
-        </attr>
-        <attr name="swipeStatusPosition" format="float|dimension" />
-        <attr name="swipeHandler" format="string" />
+        <attr name="swipeEnable" format="boolean"/>
+        <attr name="swipeStatusPosition" format="float|dimension"/>
+        <attr name="swipeHandler" format="string"/>
     </declare-styleable>
     <declare-styleable name="SwipeLayout_Layout">
         <attr name="layout_itemType">
-            <enum name="swipe_item" value="0" />
-            <enum name="start_item" value="1" />
-            <enum name="end_item" value="2" />
+            <enum name="swipe_item" value="0"/>
+            <enum name="start_item" value="1"/>
+            <enum name="end_item" value="2"/>
         </attr>
-        <attr name="layout_menuEnable" format="boolean" />
+        <attr name="layout_menuEnable" format="boolean"/>
     </declare-styleable>
 </resources>

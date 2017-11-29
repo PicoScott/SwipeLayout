@@ -7,27 +7,29 @@
               tools:context="com.scott.swipelayout.MainActivity">
 
     <android.support.v7.widget.RecyclerView
-    android:id="@+id/recycler"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:visibility="gone" />
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"/>
 
-    <include layout="@layout/item" android:id="@+id/xyz"/>
+    <!--<include-->
+        <!--android:id="@+id/xyz"-->
+        <!--layout="@layout/item"/>-->
     <!--<com.scott.swipelayout.SView-->
-        <!--android:id="@+id/sview"-->
-        <!--android:layout_width="400dp"-->
-        <!--android:layout_height="400dp"-->
-        <!--android:background="#afa"/>-->
+    <!--android:id="@+id/sview"-->
+    <!--android:layout_width="400dp"-->
+    <!--android:layout_height="400dp"-->
+    <!--android:background="#afa"/>-->
 
     <!--<Button-->
-        <!--android:id="@+id/top"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="top"/>-->
+    <!--android:id="@+id/top"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="top"/>-->
 
     <!--<Button-->
-        <!--android:id="@+id/bottom"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="bottom"/>-->
+    <!--android:id="@+id/bottom"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="bottom"/>-->
 </LinearLayout>

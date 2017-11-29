@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scott.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                             android:id="@+id/swipe_layout"
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent"
+                             app:swipeHandler="@string/swipeSnapHandler"
+                             app:swipeOrientation="horizontal"
+                             app:swipeStatusPosition="0.5">
+
+    <View
+        android:id="@+id/simple_start_menu"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_itemType="start_item"/>
+
+    <View
+        android:id="@+id/simple_end_menu"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_itemType="end_item"/>
+
+    <View
+        android:id="@+id/simple_swipe_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_itemType="swipe_item"/>
+</com.scott.swipe.SwipeLayout>

@@ -20,11 +20,11 @@ class MainActivity : AppCompatActivity() {
         recycler.layoutManager = LinearLayoutManager(this)
         recycler.adapter = SAdapter()
 
-        findViewById<SwipeLayout>(R.id.xyz).setRangeChangeListener {
-            run {
-                Log.d("abc", it.toString())
-            }
-        }
+//        findViewById<SwipeLayout>(R.id.xyz).setRangeChangeListener {
+//            run {
+//                Log.d("abc", it.toString())
+//            }
+//        }
 //        val sView = findViewById<SView>(R.id.sview)
 //        findViewById<View>(R.id.top).setOnClickListener({ sview.pullTop() })
 //        findViewById<View>(R.id.bottom).setOnClickListener({ sview.pullBottom() })
