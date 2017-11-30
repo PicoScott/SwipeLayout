@@ -477,21 +477,63 @@ public class SwipeLayout extends FrameLayout implements SwipeContainer, ViewOffs
         mEndSwipeHandler = endSwipeHandler;
     }
 
+    public boolean isStartMenuOpen() {
+        if (mSwipeOrientation == SwipeOrientation.HORIZONTAL) {
+            return mViewOffsetHelper.getLeftAndRightOffset() == getStartMenuLength();
+        } else {
+            return mViewOffsetHelper.getTopAndBottomOffset() == getStartMenuLength();
+        }
+    }
+
+    public boolean isStartMenuClose() {
+        return isMenuClosed();
+    }
+
+    private boolean isMenuClosed() {
+        if (mSwipeOrientation == SwipeOrientation.HORIZONTAL) {
+            return mViewOffsetHelper.getLeftAndRightOffset() == 0;
+        } else {
+            return mViewOffsetHelper.getTopAndBottomOffset() == 0;
+        }
+    }
+
+    public boolean isEndMenuOpen() {
+        if (mSwipeOrientation == SwipeOrientation.HORIZONTAL) {
+            return mViewOffsetHelper.getLeftAndRightOffset() == getEndMenuLength();
+        } else {
+            return mViewOffsetHelper.getTopAndBottomOffset() == getEndMenuLength();
+        }
+    }
+
+    public boolean isEndMenuClose() {
+        return isMenuClosed();
+    }
+
     /**
      * open start menu
      *
      * @param animate {@code true} open start menu smoothly, otherwise immediately.
      */
     public void openStartMenu(boolean animate) {
+        if (isEndMenuOpen()) {
+            return;
+        }
         if (mViewOffsetHelper != null) {
             if (!mViewOffsetHelper.isFinish()) {
                 mViewOffsetHelper.finish();
             }
             if (animate) {
-                mViewOffsetHelper.startScroll(mViewOffsetHelper.getLayoutLeft(), mViewOffsetHelper.getLayoutTop(), getStartMenuLength() - mViewOffsetHelper.getLeftAndRightOffset(), -mViewOffsetHelper.getTopAndBottomOffset());
+                if (mSwipeOrientation == SwipeOrientation.HORIZONTAL) {
+                    mViewOffsetHelper.startScroll(mSwipeItem.getLeft(), mSwipeItem.getTop(), getStartMenuLength(), 0);
+                } else {
+                    mViewOffsetHelper.startScroll(mSwipeItem.getLeft(), mSwipeItem.getTop(), 0, getStartMenuLength());
+                }
             } else {
-                mViewOffsetHelper.offsetByLeft(mViewOffsetHelper.getLayoutLeft());
-                mViewOffsetHelper.offsetByTop(mViewOffsetHelper.getLayoutTop());
+                if (mSwipeOrientation == SwipeOrientation.HORIZONTAL) {
+                    mViewOffsetHelper.offsetLeftAndRight(getStartMenuLength());
+                } else {
+                    mViewOffsetHelper.offsetTopAndBottom(getStartMenuLength());
+                }
             }
         }
     }
@@ -502,12 +544,19 @@ public class SwipeLayout extends FrameLayout implements SwipeContainer, ViewOffs
      * @param animate {@code true} close start menu smoothly, otherwise immediately.
      */
     public void closeStartView(boolean animate) {
+        closeMenu(animate);
+    }
+
+    private void closeMenu(boolean animate) {
+        if (isEndMenuClose()) {
+            return;
+        }
         if (mViewOffsetHelper != null) {
             if (!mViewOffsetHelper.isFinish()) {
                 mViewOffsetHelper.finish();
             }
             if (animate) {
-                mViewOffsetHelper.startScroll(mViewOffsetHelper.getLayoutLeft(), mViewOffsetHelper.getLayoutTop(), -mViewOffsetHelper.getLeftAndRightOffset(), -mViewOffsetHelper.getTopAndBottomOffset());
+                mViewOffsetHelper.startScroll(mSwipeItem.getLeft(), mSwipeItem.getTop(), -mViewOffsetHelper.getLeftAndRightOffset(), -mViewOffsetHelper.getTopAndBottomOffset());
             } else {
                 mViewOffsetHelper.offsetByLeft(mViewOffsetHelper.getLayoutLeft());
                 mViewOffsetHelper.offsetByTop(mViewOffsetHelper.getLayoutTop());
@@ -521,15 +570,25 @@ public class SwipeLayout extends FrameLayout implements SwipeContainer, ViewOffs
      * @param animate {@code true} open start menu smoothly, otherwise open immediately.
      */
     public void openEndMenu(boolean animate) {
+        if (isEndMenuOpen()) {
+            return;
+        }
         if (mViewOffsetHelper != null) {
             if (!mViewOffsetHelper.isFinish()) {
                 mViewOffsetHelper.finish();
             }
             if (animate) {
-                mViewOffsetHelper.startScroll(mViewOffsetHelper.getLayoutLeft(), mViewOffsetHelper.getLayoutTop(), -mViewOffsetHelper.getLeftAndRightOffset(), -mViewOffsetHelper.getTopAndBottomOffset());
+                if (mSwipeOrientation == SwipeOrientation.HORIZONTAL) {
+                    mViewOffsetHelper.startScroll(mSwipeItem.getLeft(), mSwipeItem.getTop(), -getEndMenuLength(), 0);
+                } else {
+                    mViewOffsetHelper.startScroll(mSwipeItem.getLeft(), mSwipeItem.getTop(), 0, -getEndMenuLength());
+                }
             } else {
-                mViewOffsetHelper.offsetByLeft(mViewOffsetHelper.getLayoutLeft());
-                mViewOffsetHelper.offsetByTop(mViewOffsetHelper.getLayoutTop());
+                if (mSwipeOrientation == SwipeOrientation.HORIZONTAL) {
+                    mViewOffsetHelper.offsetByLeft(-getEndMenuLength());
+                } else {
+                    mViewOffsetHelper.offsetByTop(-getEndMenuLength());
+                }
             }
         }
     }
@@ -540,17 +599,7 @@ public class SwipeLayout extends FrameLayout implements SwipeContainer, ViewOffs
      * @param animate {@code true} close start menu smoothly, otherwise close immediately.
      */
     public void closeEndView(boolean animate) {
-        if (mViewOffsetHelper != null) {
-            if (!mViewOffsetHelper.isFinish()) {
-                mViewOffsetHelper.finish();
-            }
-            if (animate) {
-                mViewOffsetHelper.startScroll(mViewOffsetHelper.getLayoutLeft(), mViewOffsetHelper.getLayoutTop(), -mViewOffsetHelper.getLeftAndRightOffset(), -mViewOffsetHelper.getTopAndBottomOffset());
-            } else {
-                mViewOffsetHelper.offsetByLeft(mViewOffsetHelper.getLayoutLeft());
-                mViewOffsetHelper.offsetByTop(mViewOffsetHelper.getLayoutTop());
-            }
-        }
+        closeMenu(animate);
     }
 
     /**
