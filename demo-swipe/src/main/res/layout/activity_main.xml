@@ -1,35 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              tools:context="com.scott.swipelayout.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.scott.swipelayout.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler"
+    <com.scott.swipe.SwipeLayout
+        android:id="@+id/main_swipe_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible"/>
+        android:layout_height="120dp"
+        app:swipeOrientation="horizontal"
+        app:swipeStatusPosition="0.5">
 
-    <!--<include-->
-        <!--android:id="@+id/xyz"-->
-        <!--layout="@layout/item"/>-->
-    <!--<com.scott.swipelayout.SView-->
-    <!--android:id="@+id/sview"-->
-    <!--android:layout_width="400dp"-->
-    <!--android:layout_height="400dp"-->
-    <!--android:background="#afa"/>-->
+        <FrameLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:background="#aaa"
+            app:layout_itemType="start_item">
 
-    <!--<Button-->
-    <!--android:id="@+id/top"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="top"/>-->
+            <Button
+                android:id="@+id/main_left_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="rightmenu" />
+        </FrameLayout>
 
-    <!--<Button-->
-    <!--android:id="@+id/bottom"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="bottom"/>-->
+        <FrameLayout
+            android:id="@+id/end_item"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="#faf"
+            app:layout_itemType="end_item">
+
+            <Button
+                android:id="@+id/main_right_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end"
+                android:text="MainItem" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/swipe_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#afa"
+            app:layout_itemType="swipe_item" >
+            <TextView
+                android:text="Swipe Layout"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </FrameLayout>
+
+    </com.scott.swipe.SwipeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OpenStart"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CloseStart"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OpenEnd"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CloseEnd"
+            android:textAllCaps="false" />
+    </LinearLayout>
 </LinearLayout>

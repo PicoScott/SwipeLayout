@@ -2,12 +2,9 @@ package com.scott.swipelayout
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.scott.swipe.SwipeLayout
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,17 +13,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val recycler = findViewById<RecyclerView>(R.id.recycler)
-        recycler.layoutManager = LinearLayoutManager(this)
-        recycler.adapter = SAdapter()
-
-//        findViewById<SwipeLayout>(R.id.xyz).setRangeChangeListener {
-//            run {
-//                Log.d("abc", it.toString())
-//            }
-//        }
-//        val sView = findViewById<SView>(R.id.sview)
-//        findViewById<View>(R.id.top).setOnClickListener({ sview.pullTop() })
-//        findViewById<View>(R.id.bottom).setOnClickListener({ sview.pullBottom() })
+        val swipeLayout = findViewById<SwipeLayout>(R.id.main_swipe_layout)
+        findViewById<View>(R.id.main_left_menu).setOnClickListener({
+            Toast.makeText(this, "Click sipelayout left menu", Toast.LENGTH_SHORT).show()
+        })
+        findViewById<View>(R.id.main_right_menu).setOnClickListener({
+            Toast.makeText(this, "Click sipelayout right menu", Toast.LENGTH_SHORT).show()
+        })
+        findViewById<View>(R.id.btn1).setOnClickListener({
+            swipeLayout.openStartMenu(true)
+        })
+        findViewById<View>(R.id.btn2).setOnClickListener({
+            swipeLayout.closeStartView(true)
+        })
+        findViewById<View>(R.id.btn3).setOnClickListener({
+            swipeLayout.openEndMenu(true)
+        })
+        findViewById<View>(R.id.btn4).setOnClickListener({
+            swipeLayout.closeEndView(true)
+        })
     }
 }

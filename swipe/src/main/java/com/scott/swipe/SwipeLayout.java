@@ -499,9 +499,9 @@ public class SwipeLayout extends FrameLayout implements SwipeContainer, ViewOffs
 
     public boolean isEndMenuOpen() {
         if (mSwipeOrientation == SwipeOrientation.HORIZONTAL) {
-            return mViewOffsetHelper.getLeftAndRightOffset() == getEndMenuLength();
+            return -mViewOffsetHelper.getLeftAndRightOffset() == getEndMenuLength();
         } else {
-            return mViewOffsetHelper.getTopAndBottomOffset() == getEndMenuLength();
+            return -mViewOffsetHelper.getTopAndBottomOffset() == getEndMenuLength();
         }
     }
 
@@ -515,7 +515,7 @@ public class SwipeLayout extends FrameLayout implements SwipeContainer, ViewOffs
      * @param animate {@code true} open start menu smoothly, otherwise immediately.
      */
     public void openStartMenu(boolean animate) {
-        if (isEndMenuOpen()) {
+        if (isStartMenuOpen() || isEndMenuOpen()) {
             return;
         }
         if (mViewOffsetHelper != null) {
@@ -570,7 +570,7 @@ public class SwipeLayout extends FrameLayout implements SwipeContainer, ViewOffs
      * @param animate {@code true} open start menu smoothly, otherwise open immediately.
      */
     public void openEndMenu(boolean animate) {
-        if (isEndMenuOpen()) {
+        if (isEndMenuOpen() || isStartMenuOpen()) {
             return;
         }
         if (mViewOffsetHelper != null) {
