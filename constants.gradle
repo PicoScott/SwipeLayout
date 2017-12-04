@@ -1,0 +1,10 @@
+ext {
+    projectName = 'SwipeLayout'
+    projectDesc = 'SwipeLayout for Android'
+
+    githubUrl = 'https://github.com/PicoScott/SwipeLayout'
+
+    mavenGroup = 'com.picoscott'
+    mavenArtifactId = 'swipelayout'
+    mavenVersion = '0.0.1'
+}

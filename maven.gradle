@@ -1,0 +1,56 @@
+apply plugin: 'com.github.dcendents.android-maven'
+
+
+install {
+    repositories.mavenInstaller {
+        pom.project {
+            name projectName
+            description projectDesc
+            url githubUrl
+
+            packaging 'aar'
+            groupId mavenGroup
+            artifactId mavenArtifactId
+            version mavenVersion
+
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+            scm {
+                connection "${githubUrl}.git"
+                url githubUrl
+
+            }
+            developers {
+                developer {
+                    name 'PicoScott'
+                    email 'namelimu@outlook.com'
+                }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives sourcesJar
+    archives javadocJar
+}
