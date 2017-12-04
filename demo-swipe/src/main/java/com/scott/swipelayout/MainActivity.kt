@@ -23,9 +23,6 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.btn1).setOnClickListener({
             swipeLayout.openStartMenu(true)
         })
-        findViewById<View>(R.id.btn2).setOnClickListener({
-            swipeLayout.closeStartView(true)
-        })
         findViewById<View>(R.id.btn3).setOnClickListener({
             swipeLayout.openEndMenu(true)
         })

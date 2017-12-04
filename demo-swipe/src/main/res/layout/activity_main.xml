@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.scott.swipelayout.MainActivity">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context="com.scott.swipelayout.MainActivity">
 
     <com.scott.swipe.SwipeLayout
         android:id="@+id/main_swipe_layout"
@@ -25,7 +25,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="rightmenu" />
+                android:text="StartItem"
+                android:textAllCaps="false"/>
         </FrameLayout>
 
         <FrameLayout
@@ -41,7 +42,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|end"
-                android:text="MainItem" />
+                android:text="EndItem"
+                android:textAllCaps="false"/>
         </FrameLayout>
 
         <FrameLayout
@@ -49,12 +51,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#afa"
-            app:layout_itemType="swipe_item" >
+            app:layout_itemType="swipe_item">
+
             <TextView
-                android:text="Swipe Layout"
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Swipe Layout"/>
         </FrameLayout>
 
     </com.scott.swipe.SwipeLayout>
@@ -68,27 +71,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OpenStart"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btn2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CloseStart"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"/>
 
         <Button
             android:id="@+id/btn3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OpenEnd"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"/>
 
         <Button
             android:id="@+id/btn4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CloseEnd"
-            android:textAllCaps="false" />
+            android:text="CloseMenu"
+            android:textAllCaps="false"/>
     </LinearLayout>
 </LinearLayout>
