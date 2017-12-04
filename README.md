@@ -38,6 +38,9 @@ The first one is SwipeLayout that extends the FrameLayout. You can specify the a
 
 </com.scott.swipe.SwipeLayout>
 ```
+![](assets/finger.gif)
+
+![](assets/code.gif)
 
 ## Attribute for the SwipeLayout
 
