@@ -720,8 +720,8 @@ public class SwipeLayout extends FrameLayout implements SwipeContainer, ViewOffs
 
     /**
      * @return the length of start menu.
-     * if swipe orientation is {@link SwipeOrientation#HORIZONTAL}, length is {@link #getStartMenu()#getWidth()},
-     * if swipe orientation is {@link SwipeOrientation#VERTICAL}, length is {@link #getStartMenu()#getHeight()}.
+     * if swipe orientation is {@link SwipeOrientation#HORIZONTAL}, length is {@link #getStartMenu()}getWidth(),
+     * if swipe orientation is {@link SwipeOrientation#VERTICAL}, length is {@link #getStartMenu()}getHeight().
      */
     public int getStartMenuLength() {
         return getMenuLength(mStartMenu);
@@ -729,8 +729,8 @@ public class SwipeLayout extends FrameLayout implements SwipeContainer, ViewOffs
 
     /**
      * @return the length of end menu.
-     * if swipe orientation is {@link SwipeOrientation#HORIZONTAL}, length is {@link #getEndMenu()#getWidth()},
-     * if swipe orientation is {@link SwipeOrientation#VERTICAL}, length is {@link #getEndMenu()#getHeight()}.
+     * if swipe orientation is {@link SwipeOrientation#HORIZONTAL}, length is {@link #getEndMenu()}getWidth(),
+     * if swipe orientation is {@link SwipeOrientation#VERTICAL}, length is {@link #getEndMenu()}getHeight().
      */
     public int getEndMenuLength() {
         return getMenuLength(mEndMenu);
