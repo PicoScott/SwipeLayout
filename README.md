@@ -1,5 +1,6 @@
 # SwipeLayout
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.picoscott/swipelayout/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.picoscott/swipelayout)
 
 # Installation
 
